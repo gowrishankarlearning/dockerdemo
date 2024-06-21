@@ -9,11 +9,7 @@ node {
         app = docker.build("gowrilearning/demo")
     }
 
-    stage('Test image') {
-        app.inside {
-            sh 'echo "Tests passed"'
-        }
-    }
+
 
     stage('Push image') {
         docker.withRegistry('https://registry.hub.docker.com', 'docker') {
